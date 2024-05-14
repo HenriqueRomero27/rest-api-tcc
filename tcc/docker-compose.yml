@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  db:
+    image: 'postgres:latest'
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DATABASE: application
+      POSTGRES_USER: miautcc
+      POSTGRES_PASSWORD: 123
+      POSTGRES_ROOT_PASSWORD: rootpass
+    ports:
+      - 5432:5432
+    volumes:
+      - ./assets/data:/docker-entrypoint-initdb.d
